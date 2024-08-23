@@ -5,6 +5,7 @@
     <title>Document</title>
 </head>
 <body>
+    <span>Total clicks : 0</span>
     <button id ="btn">
         click me
     </button>
@@ -12,11 +13,15 @@
 </body>
 
 <script>
+    let counter = 0;
     const button = document.getElementById("btn");
+    const span = document.querySelector("span");
     button.addEventListener("click", handleClick);
 
     function handleClick(){
-        console.log("i have been clicked");
+       counter += 1;
+
+       span.innerText = 'Total clicks : ' + counter;
     }
 </script>
 </html>
