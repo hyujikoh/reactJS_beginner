@@ -15,29 +15,21 @@
 
 <script type="text/babel">
     const root = document.getElementById("root");
-    const title = (<h3 id = "title" onMouseEnter= {()=> console.log("mouse enter")}>
+
+    // 모든 함수를 작성하고 컴포넌트로 사용할려면 대문자로 사용해야한다. 
+    const Title = () => (<h3 id = "title" onMouseEnter= {()=> console.log("mouse enter")}>
         Hello im title
         </h3>);
 
-    const btn = (
+    const Button = () => (
         <button 
         style = {{
         backgroundColor : "tomato"
     }} onClick = {() =>  console.log("im clicked") }>click me</button>);
-    /*
-    const h3 = React.createElement("h3", {
-        id : "title",
-        onMouseEnter: ()=> console.log("mouse enter")
-    }, "hello i am span");
-    
-    const btn = React.createElement("button", {
-        style : {
-            backgroundColor : "tomato"
-        },
-        onClick : () => console.log("im clicked")
-    }, "click-me");
-    */
-    const container = React.createElement("div", null, [title,btn]);
-    ReactDOM.render(container, root);
+
+    const Container = () => <div>
+        <Title /> <Button />
+        </div>;
+    ReactDOM.render(<Container />, root);
 </script>
 </html>
