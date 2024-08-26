@@ -17,21 +17,19 @@
     const root = document.getElementById("root");
 
     // 모든 함수를 작성하고 컴포넌트로 사용할려면 대문자로 사용해야한다. 
-    const Title = () => (<h3 id = "title" onMouseEnter= {()=> console.log("mouse enter")}>
-        Hello im title
-        </h3>);
 
-    const Button = () => (
-        <button 
-        style = {{
-        backgroundColor : "tomato"
-    }} onClick = {() =>  console.log("im clicked") }>click me</button>);
+    let counter = 10;
 
+    function countUp(){
+        counter = counter + 1;
+    }
     const Container = () => <div>
-        <h3> Total clicks : 0 </h3>
+        <h3> Total clicks : {counter} </h3>
 
-        <button>click me</button>
+        <button onClick = {countUp}>click me</button>
     </div>;
+
+    // 이렇게 하면 렌더링 한번 밖에 안되서 업데이트 안된다.
     ReactDOM.render(<Container />, root);
 </script>
 </html>
