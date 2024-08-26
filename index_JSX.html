@@ -22,6 +22,11 @@
 
     function countUp(){
         counter = counter + 1;
+        reRender();
+    }
+
+    function reRender() {
+        ReactDOM.render(<Container />, root);
     }
     const Container = () => <div>
         <h3> Total clicks : {counter} </h3>
