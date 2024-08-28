@@ -17,12 +17,17 @@
     const root = document.getElementById("root");
 
     function Container() {
-        const [counter ,modifier] = React.useState(0);
+        let [counter ,modifier] = React.useState(0);
+
+        const onClick = () => {
+            counter = counter+ 1;
+            modifier(counter);
+        }
         return (
         <div>
             <h3> Total clicks : {counter} </h3>
 
-            <button>click me</button>
+            <button onClick = {onClick}>click me</button>
         </div>
         )
     }
