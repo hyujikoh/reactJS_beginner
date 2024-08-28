@@ -16,23 +16,16 @@
 <script type="text/babel">
     const root = document.getElementById("root");
 
-    // 모든 함수를 작성하고 컴포넌트로 사용할려면 대문자로 사용해야한다. 
+    function Container() {
+        const [counter ,modifier] = React.useState(0);
+        return (
+        <div>
+            <h3> Total clicks : {counter} </h3>
 
-    let counter = 10;
-
-    function countUp(){
-        counter = counter + 1;
-        reRender();
+            <button>click me</button>
+        </div>
+        )
     }
-
-    function reRender() {
-        ReactDOM.render(<Container />, root);
-    }
-    const Container = () => <div>
-        <h3> Total clicks : {counter} </h3>
-
-        <button onClick = {countUp}>click me</button>
-    </div>;
-    reRender();
+    ReactDOM.render(<Container />, root);
 </script>
 </html>
