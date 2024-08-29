@@ -20,7 +20,7 @@
         let [counter ,modifier] = React.useState(0);
 
         const onClick = () => {
-            modifier(counter + 1);
+            modifier(counter++);
         }
         return (
         <div>
