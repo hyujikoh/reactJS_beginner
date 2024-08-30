@@ -16,7 +16,7 @@
 <script type="text/babel">
     const root = document.getElementById("root");
 
-    function Container() {
+    function MinuteToHours() {
         const [amount , setAmount] = React.useState(0);
         const [flipped, setFlipped] = React.useState(false);
         const onChange = (event) => {
@@ -31,8 +31,6 @@
         };
         return (
         <div>
-            <h1> super convertor </h1>
-
             <div>
                 <label htmlFor="minutes">Minute</label>
                 <input 
@@ -61,11 +59,33 @@
 
 
         <button onClick = {onReset}> reset </button>
-        <button onClick = {onFlip}> Flipped </button>
+        <button onClick = {onFlip}>{flipped ? "trrn back" : "flip"} </button>
         </div>
 
         );
     }
-    ReactDOM.render(<Container />, root);
+
+    function KmToMiles(){
+        return <h3>KM 2 M</h3>
+    }
+    function App() {
+        const [index, setIndex] = React.useState(0)
+        const onSelect = (evenet)  => {
+            setIndex(evenet.target.value)
+        }
+        return (
+        <div>
+            <h1> super convertor </h1>
+            <select value = {index} onChange = {onSelect}>
+                <option value = "0">Min and Hour</option>
+                <option value = "1">KM and Mules</option>
+            </select>
+            {index === "0" ? <MinuteToHours /> : null}
+            {index === "1" ? <KmToMiles /> : null}
+            
+        </div>
+        );
+    }
+    ReactDOM.render(<App />, root);
 </script>
 </html>
