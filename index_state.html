@@ -13,31 +13,49 @@
     <div id="root"></div>
 </body>
 
-
 <script type="text/babel">
     const root = document.getElementById("root");
 
     function Container() {
-        const [minutes, setMinutes] = React.useState();
+        const [minutes, setMinutes] = React.useState(0);
 
         const onChange = (event) => {
             setMinutes(event.target.value)
         }
+        const onReset = () => {
+            setMinutes(0);
+        }
         return (
         <div>
             <h1> super convertor </h1>
-            <label htmlFor="minutes">Minute</label>
-            <input 
-            value = {minutes} 
-            id = "minutes"
-            placeholder = "Minutes" 
-            type="number"
-            onChange = {onChange}
-            />
+
+            <div>
+                <label htmlFor="minutes">Minute</label>
+                <input 
+                    value = {minutes} 
+                    id = "minutes"
+                    placeholder = "Minutes" 
+                    type="number"
+                    onChange = {onChange}
+                />    
+            </div>
+
             <h1> you want to {minutes}</h1>
-            <label htmlFor="hours" >Hours</label>
-            <input id = "hours" placeholder = "Hours" type="number"/>
+
+            <div>
+                <label htmlFor="hours" >Hours</label>
+                <input 
+                    value = {Math.round(minutes /60 )}
+                    id = "hours" 
+                    placeholder = "Hours" 
+                    type="number"
+                />
+            </div>
+
+
+        <button onClick = {onReset}> reset </button>
         </div>
+
         );
     }
     ReactDOM.render(<Container />, root);
