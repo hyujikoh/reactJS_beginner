@@ -69,7 +69,7 @@
         return <h3>KM 2 M</h3>
     }
     function App() {
-        const [index, setIndex] = React.useState(0)
+        const [index, setIndex] = React.useState("xx")
         const onSelect = (evenet)  => {
             setIndex(evenet.target.value)
         }
@@ -77,9 +77,12 @@
         <div>
             <h1> super convertor </h1>
             <select value = {index} onChange = {onSelect}>
+                <option value = "xx">Select your option</option>
                 <option value = "0">Min and Hour</option>
                 <option value = "1">KM and Mules</option>
             </select>
+            <hr />
+            {index === "xx" ? "select your choice" : null}
             {index === "0" ? <MinuteToHours /> : null}
             {index === "1" ? <KmToMiles /> : null}
             
