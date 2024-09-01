@@ -7,7 +7,7 @@
     <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone@7.25.5/babel.min.js"></script>
-
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
 </head>
 <body>
     <div id="root"></div>
@@ -29,6 +29,10 @@
         }}>{banana}</button>
     }
 
+    Btn.propTypes = {
+        banana : PropTypes.string,
+        fontSize : PropTypes.number
+    }
     const MemorizedBtn = React.memo(Btn)
     function App() {
         const [value , setValue] = React.useState("Save Changes")
@@ -40,7 +44,7 @@
             <h1> Props area </h1>
 
              
-            <MemorizedBtn banana = {value} changeValue = {changeValue}/>
+            <MemorizedBtn banana = {value} changeValue = {changeValue} fontSize = {"13"}/>
             <MemorizedBtn banana = "Confirm"/>
         </div>
         );
