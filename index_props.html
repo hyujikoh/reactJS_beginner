@@ -16,11 +16,24 @@
 <script type="text/babel">
     const root = document.getElementById("root");
 
+    function Btn(props) {
+        return <button 
+        style ={{
+            backgroundColor : "tomato",
+            color : "white",
+            padding : "10px 20px",
+            border : 0 ,
+            borderRadius : 10,
+        }}>{props.banana}</button>
+    }
+
     function App() {
         
         return (
         <div>
-            <h1> super convertor </h1>
+            <h1> Props area </h1>
+            <Btn banana = "save Change" />
+            <Btn banana = "Confirm"/>
         </div>
         );
     }
