@@ -31,8 +31,11 @@
         }}>{banana}</button>
     }
     Btn.propTypes = {
+        // 없어도 무방하지만, 존재할경우, 필드 검사 필요함
         banana : PropTypes.string,
-        fontSize : PropTypes.number,
+
+        // 해당 이슈는 무조건 존재하고 검사를 해야함
+        fontSize : PropTypes.number.isRequired,
 
     }
     const MemorizedBtn = React.memo(Btn)
