@@ -5,7 +5,8 @@
     <title>Document</title>
 
     <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
     <script src="https://unpkg.com/@babel/standalone@7.25.5/babel.min.js"></script>
 
 </head>
@@ -16,7 +17,7 @@
 <script type="text/babel">
     const root = document.getElementById("root");
 
-    function Btn({banana, changeValue}) {
+    function Btn({banana, changeValue, fontSize}) {
         console.log(banana , "was render")
         return <button 
         onClick = {changeValue}
@@ -26,9 +27,14 @@
             padding : "10px 20px",
             border : 0 ,
             borderRadius : 10,
+            fontSize
         }}>{banana}</button>
     }
+    Btn.propTypes = {
+        banana : PropTypes.string,
+        fontSize : PropTypes.number,
 
+    }
     const MemorizedBtn = React.memo(Btn)
     
     function App() {
@@ -41,12 +47,12 @@
             <h1> Props area </h1>
 
              
-            <MemorizedBtn banana = {value} changeValue = {changeValue}/>
+            <MemorizedBtn banana = {value} changeValue = {changeValue} fontSize = {18}/>
             <MemorizedBtn banana = "Confirm"/>
+            <MemorizedBtn banana = {18}/>
         </div>
         );
     }
-    //code 32 , 33 line is not reference
     ReactDOM.render(<App />, root);
 </script>
 </html>
