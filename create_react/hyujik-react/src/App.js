@@ -13,7 +13,7 @@ function App() {
   }
   useEffect(() => {
     console.log("i run only once")
-  },[])
+  },[]) // 오직 1번만 호출
 
   useEffect(() => {
     if(keyword !=="" && keyword.length > 5){
@@ -22,7 +22,11 @@ function App() {
   }, [keyword])
   useEffect(() => {
     console.log("i run when 'counter' changed ", keyword)
-  }, [counter])
+  }, [counter]) // Counter 만 변경되면 호출
+
+  useEffect(() => {
+    console.log("i run when 'counter' changed ", keyword)
+  }, [keyword, counter]) //  둘중 하나만 변화되면 호츌
   return (
     <div>
       <input 
