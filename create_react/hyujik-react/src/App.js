@@ -20,7 +20,9 @@ function App() {
       console.log("i run when 'keyword' changed ", keyword)
     }
   }, [keyword])
-  
+  useEffect(() => {
+    console.log("i run when 'counter' changed ", keyword)
+  }, [counter])
   return (
     <div>
       <input 
