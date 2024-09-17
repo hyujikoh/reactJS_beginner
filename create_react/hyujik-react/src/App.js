@@ -12,11 +12,13 @@ function App() {
     console.log("i run only once")
   }
   useEffect(() => {
-    console.log("console lig")
+    console.log("i run only once")
   },[])
 
   useEffect(() => {
-    console.log("serch for", keyword)
+    if(keyword !=="" && keyword.length > 5){
+      console.log("i run when 'keyword' changed ", keyword)
+    }
   }, [keyword])
   
   return (
