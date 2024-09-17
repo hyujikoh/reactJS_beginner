@@ -1,6 +1,7 @@
 import Button from "./Button";
 import styles from "./App.module.css"
 import { useState, useEffect } from "react";
+import { func } from "prop-types";
 function App() {
   const [showing, setShowing] = useState(false);
   const onClick = () => setShowing((prev) => !prev)
@@ -13,10 +14,15 @@ function App() {
 }
 
 function Hello () {
-    useEffect ( () => {
+    function effectFn() {
         console.log ("created :) ");
-        return () => console.log("destroy") // 내 컴포넌트가 사라질때 실행
-    }, []);
+        return destroyedFn;
+    }
+
+    function destroyedFn(){
+        console.log("destroyed :(")
+    }
+    useEffect ( effectFn, []);
     return <h1>Hello</h1>
 }
 export default App;
